@@ -10,7 +10,7 @@ export default function SignIn() {
 	const router = useRouter();
 	return (
 		<>
-			<div className="w-full max-w-xl space-y-6 rounded-lg drop-shadow-lg">
+			<div className="w-full max-w-xl space-y-6 rounded-lg drop-shadow-lg backdrop-blur-xs">
 				<div className="flex justify-between items-center">
 					<div className="flex gap-2 font-bold text-2xl">
 						Log in to
@@ -30,7 +30,7 @@ export default function SignIn() {
 						</Button>
 					</div>
 				</div>
-				<div className="p-6 border rounded-lg border-gray-300 dark:border-gray-800">
+				<div className="p-6 border rounded-lg border-gray-300 dark:border-gray-800 ">
 					<form action="#" method="POST" className="space-y-6">
 						<div>
 							<label htmlFor="email" className="block text-sm/6 font-medium ">

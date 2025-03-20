@@ -5,8 +5,8 @@ export default function About() {
 		<div className="flex bg-[url('/rice-background2.jpg')] bg-bottom bg-no-repeat bg-cover max-w-[2080px] items-center back justify-center h-screen w-full">
 			<div className=" h-screen w-full relative"></div>
 			<div className="flex absolute max-w-[1280px] w-full justify-between items-center gap-20 mx-auto">
-				<div className="flex flex-col text-wrap gap-16 backdrop-blur-sm rounded-md p-6 border">
-					<h1 className="text-4xl font-mono font-bolder text-indigo-800">
+				<div className="flex flex-col text-wrap gap-16 backdrop-blur-xs rounded-md p-6 border">
+					<h1 className="text-4xl font-mono font-extrabold text-indigo-800">
 						What is Rice Sentry?
 					</h1>
 					<p className="font-semibold text-lg text-wrap">
@@ -24,8 +24,8 @@ export default function About() {
 						safeguarding your rice plants&apos; health is just a click away!
 					</p>
 				</div>
-				<div className="flex flex-col text-wrap gap-16 backdrop-blur-sm rounded-sm border p-6">
-					<h1 className="text-4xl font-mono font-bolder text-indigo-800">
+				<div className="flex flex-col text-wrap gap-16 backdrop-blur-xs rounded-sm border p-6">
+					<h1 className="text-4xl font-mono font-extrabold text-indigo-800">
 						How to Use Rice Sentry?
 					</h1>
 					<p className="font-semibold text-lg text-wrap">
