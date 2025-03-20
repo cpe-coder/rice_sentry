@@ -1,4 +1,5 @@
 import { ModeToggle } from "./mode-toggle";
+import { NavBar } from "./navbar";
 import { ThemeProvider } from "./theme-provider";
 
-export { ModeToggle, ThemeProvider };
+export { ModeToggle, NavBar, ThemeProvider };
