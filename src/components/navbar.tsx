@@ -1,9 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ModeToggle } from "./mode-toggle";
 import { Button } from "./ui";
 
 export function NavBar() {
-	// const active = ""
+	const pathname = usePathname();
+	const inActive =
+		"hover:bg-[#7241FF] hover:font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-3 rounded-sm ";
+	const active =
+		"border border-[#7241FF] font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm";
 	return (
 		<div className="w-full py-6 bg fixed bg-background">
 			<nav className="flex px-8 items-center mx-auto justify-between">
@@ -11,33 +18,30 @@ export function NavBar() {
 					<span>Rice</span>
 					<span className="text-[#7241FF]">Sentry</span>
 				</div>
-				<div className="flex">
-					<Link
-						className="hover:bg-[#7241FF] font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm"
-						href="/"
-					>
+				<div className="flex gap-2">
+					<Link className={pathname == "/" ? active : inActive} href="/">
 						Home
 					</Link>
 					<Link
-						className="py-1 px-4 rounded-sm font-medium hover:bg-[#7241FF] hover:transition-all hover:duration-500 transition-all duration-300"
+						className={pathname == "/about" ? active : inActive}
 						href="/about"
 					>
 						About
 					</Link>
 					<Link
-						className="py-1 px-4 rounded-sm font-medium hover:bg-[#7241FF] hover:transition-all hover:duration-500 transition-all duration-300"
+						className={pathname == "/detect" ? active : inActive}
 						href="/detect"
 					>
 						Detect
 					</Link>
 					<Link
-						className="py-1 px-4 rounded-sm font-medium hover:bg-[#7241FF] hover:transition-all hover:duration-500 transition-all duration-300"
+						className={pathname == "/diseases" ? active : inActive}
 						href="/diseases"
 					>
 						Diseases
 					</Link>
 					<Link
-						className="py-1 px-4 rounded-sm font-medium hover:bg-[#7241FF] hover:transition-all hover:duration-500 transition-all duration-300"
+						className={pathname == "/team" ? active : inActive}
 						href="/team"
 					>
 						Team
