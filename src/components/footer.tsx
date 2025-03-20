@@ -1,3 +1,7 @@
 export function Footer() {
-	return <div>Footer</div>;
+	return (
+		<div className="p-10 flex justify-center items-center">
+			<div></div>
+		</div>
+	);
 }
