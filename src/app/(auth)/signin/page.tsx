@@ -1,20 +1,36 @@
+"use client";
+
 import { Button, Input } from "@/components/ui";
+import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import React from "react";
 
 export default function SignIn() {
+	const [showPassword, setShowPassword] = React.useState(false);
+	const router = useRouter();
 	return (
 		<>
-			<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-				<div className="sm:mx-auto sm:w-full sm:max-w-sm">
+			<div className="w-full max-w-xl space-y-6 rounded-lg drop-shadow-lg">
+				<div className="flex justify-between items-center">
 					<div className="flex gap-2 font-bold text-2xl">
+						Log in to
 						<span>Rice</span>
-						<span className="text-[#7241FF]">Sentry</span>
+						<span className="text-indigo-600">Sentry</span>
 					</div>
-					<h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight ">
-						Sign in to your account
-					</h2>
+					<div className=" flex  items-center gap-3">
+						<span className="text-base font-semibold text-gray-500  hover:text-white">
+							New user?
+						</span>
+						<Button
+							variant="outline"
+							onClick={() => router.push("/signup")}
+							className="px-6 py-4 text-sm hover:cursor-pointer font-medium rounded-sm "
+						>
+							Sign Up <ArrowRight />
+						</Button>
+					</div>
 				</div>
-
-				<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm ">
+				<div className="p-6 border rounded-lg border-gray-300 dark:border-gray-800">
 					<form action="#" method="POST" className="space-y-6">
 						<div>
 							<label htmlFor="email" className="block text-sm/6 font-medium ">
@@ -27,7 +43,7 @@ export default function SignIn() {
 									type="email"
 									required
 									autoComplete="email"
-									className="block w-full rounded-md bg-white px-3 py-1.5 text-base placeholder:text-gray-400  focus:outline-indigo-600 sm:text-sm/6"
+									className="block w-full rounded-sm px-3 py-4 h-13 text-base  sm:text-sm/6 focus-visible:ring-indigo-600 focus-visible:ring-1"
 								/>
 							</div>
 						</div>
@@ -49,22 +65,31 @@ export default function SignIn() {
 									</a>
 								</div>
 							</div>
-							<div className="mt-2">
+							<div className="mt-2 gap-1">
 								<Input
 									id="password"
 									name="password"
-									type="password"
+									type={showPassword ? "text" : "password"}
 									required
 									autoComplete="current-password"
-									className="block w-full rounded-md bg-white px-3 py-1.5 text-base placeholder:text-gray-400  focus:outline-indigo-600 sm:text-sm/6"
+									className="block w-full rounded-sm px-3 py-4 text-base h-13 sm:text-sm/6 focus-visible:ring-indigo-600 focus-visible:ring-1"
 								/>
+								<div className="flex gap-2 items-center">
+									<Input
+										id="showPassword"
+										type="checkbox"
+										onChange={() => setShowPassword(!showPassword)}
+										className="h-4 w-4"
+									/>
+									<label htmlFor="showPassword">Show password</label>
+								</div>
 							</div>
 						</div>
 
 						<div>
 							<Button
 								type="submit"
-								className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+								className="flex w-full hover:cursor-pointer justify-center rounded-sm h-10 bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 							>
 								Sign in
 							</Button>

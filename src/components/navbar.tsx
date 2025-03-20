@@ -9,15 +9,15 @@ export function NavBar() {
 	const router = useRouter();
 	const pathname = usePathname();
 	const inActive =
-		"hover:bg-[#7241FF] hover:font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-3 rounded-sm hover:cursor-pointer ";
+		"hover:bg-indigo-600 hover:font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-3 rounded-sm hover:cursor-pointer ";
 	const active =
-		"border border-[#7241FF] font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm hover:cursor-pointer";
+		"border border-indigo-600 font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm hover:cursor-pointer";
 	return (
 		<div className="w-full py-6 bg-background">
 			<nav className="flex items-center mx-auto justify-between max-w-[1280px]">
 				<div className="flex gap-2 font-bold text-2xl">
 					<span>Rice</span>
-					<span className="text-[#7241FF]">Sentry</span>
+					<span className="text-indigo-600">Sentry</span>
 				</div>
 				<div className="flex gap-2">
 					<Link className={pathname == "/" ? active : inActive} href="/">
@@ -51,7 +51,7 @@ export function NavBar() {
 				<div className="flex items-center gap-8">
 					<Button
 						onClick={() => router.push("/signin")}
-						className="px-8 bg-[#7241FF] text-foreground hover:cursor-pointer"
+						className="px-8 bg-indigo-600 hover:cursor-pointer text-white"
 					>
 						Sign In
 					</Button>

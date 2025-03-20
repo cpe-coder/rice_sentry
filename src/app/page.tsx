@@ -25,7 +25,7 @@ export default function Home() {
 					income wealthy.
 				</p>
 				<div className="mt-8">
-					<Button className="px-12 py-6 bg-[#7241FF] text-foreground font-bold hover:cursor-pointer">
+					<Button className="px-12 py-6 bg-indigo-600 text-white font-bold hover:cursor-pointer">
 						Proceed
 					</Button>
 				</div>
