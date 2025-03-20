@@ -12,8 +12,8 @@ export function NavBar() {
 	const active =
 		"border border-[#7241FF] font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm";
 	return (
-		<div className="w-full py-6 bg fixed bg-background">
-			<nav className="flex px-8 items-center mx-auto justify-between">
+		<div className="w-full py-6 z-[2000] fixed bg-background">
+			<nav className="flex items-center mx-auto justify-between max-w-[1280px]">
 				<div className="flex gap-2 font-bold text-2xl">
 					<span>Rice</span>
 					<span className="text-[#7241FF]">Sentry</span>
