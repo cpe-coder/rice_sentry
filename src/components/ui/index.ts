@@ -16,6 +16,7 @@ import {
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
 } from "./dropdown-menu";
+import { Input } from "./input";
 import {
 	Menubar,
 	MenubarCheckboxItem,
@@ -52,6 +53,7 @@ export {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
+	Input,
 	Menubar,
 	MenubarCheckboxItem,
 	MenubarContent,

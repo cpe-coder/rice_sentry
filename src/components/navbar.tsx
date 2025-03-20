@@ -13,7 +13,7 @@ export function NavBar() {
 	const active =
 		"border border-[#7241FF] font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm hover:cursor-pointer";
 	return (
-		<div className="w-full py-6 z-[2000] fixed bg-background">
+		<div className="w-full py-6 bg-background">
 			<nav className="flex items-center mx-auto justify-between max-w-[1280px]">
 				<div className="flex gap-2 font-bold text-2xl">
 					<span>Rice</span>
@@ -50,7 +50,7 @@ export function NavBar() {
 				</div>
 				<div className="flex items-center gap-8">
 					<Button
-						onClick={() => router.push("/auth/signin")}
+						onClick={() => router.push("/signin")}
 						className="px-8 bg-[#7241FF] text-foreground hover:cursor-pointer"
 					>
 						Sign In
