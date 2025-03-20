@@ -11,7 +11,7 @@ export default function SignUp() {
 	const router = useRouter();
 	return (
 		<>
-			<div className="w-full max-w-xl space-y-6 rounded-lg drop-shadow-lg">
+			<div className="w-full max-w-xl space-y-6 rounded-lg drop-shadow-lg pt-14">
 				<div className="flex justify-between items-center">
 					<div className="flex gap-2 font-bold text-2xl">
 						Log in to
