@@ -1,16 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ModeToggle } from "./mode-toggle";
 import { Button } from "./ui";
 
 export function NavBar() {
+	const router = useRouter();
 	const pathname = usePathname();
 	const inActive =
-		"hover:bg-[#7241FF] hover:font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-3 rounded-sm ";
+		"hover:bg-[#7241FF] hover:font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-3 rounded-sm hover:cursor-pointer ";
 	const active =
-		"border border-[#7241FF] font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm";
+		"border border-[#7241FF] font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm hover:cursor-pointer";
 	return (
 		<div className="w-full py-6 z-[2000] fixed bg-background">
 			<nav className="flex items-center mx-auto justify-between max-w-[1280px]">
@@ -48,7 +49,10 @@ export function NavBar() {
 					</Link>
 				</div>
 				<div className="flex items-center gap-8">
-					<Button className="px-8 bg-[#7241FF] dark:text-foreground ">
+					<Button
+						onClick={() => router.push("/auth/signin")}
+						className="px-8 bg-[#7241FF] text-foreground hover:cursor-pointer"
+					>
 						Sign In
 					</Button>
 					<ModeToggle />
