@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Home() {
 	return (
-		<div className="flex bg-[url('/rice-background.jpg')] bg-bottom bg-no-repeat bg-cover max-w-[2080px] items-center back justify-center h-screen w-full">
-			<div className="grid grid-cols-1 max-w-[1280px] w-full justify-start items-center pt-12 backdrop-blur-xs p-6 rounded-md border">
+		<div className="bg-[url('/rice-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center h-screen p-8 w-full">
+			<div className="grid grid-cols-1 max-w-[1280px] w-full justify-start items-center pt-12 backdrop-blur-xs p-8 rounded-md border">
 				<h3 className="font-medium text-lg mb-8">
 					WELCOME TO
 					<span className="font-extrabold underline p-2 text-indigo-800">

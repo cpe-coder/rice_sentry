@@ -14,7 +14,7 @@ export function NavBar() {
 		"border border-indigo-600 font-medium hover:transition-all hover:duration-500 transition-all duration-300 py-1 px-4 rounded-sm hover:cursor-pointer";
 	return (
 		<div className="w-full py-6 bg-background">
-			<nav className="flex items-center mx-auto justify-between max-w-[1280px]">
+			<nav className="flex items-center mx-auto justify-between max-w-[1280px] px-8">
 				<div className="flex font-bold text-2xl">
 					Rice
 					<span className="text-indigo-600">Sentry</span>
