@@ -13,9 +13,8 @@ export default function SignUp() {
 		<>
 			<div className="w-full max-w-xl space-y-6 rounded-lg drop-shadow-lg pt-14 backdrop-blur-xs">
 				<div className="flex justify-between items-center">
-					<div className="flex gap-2 font-bold text-2xl">
-						Log in to
-						<span>Rice</span>
+					<div className="flex font-bold text-2xl">
+						Sign Up to Rice
 						<span className="text-indigo-600">Sentry</span>
 					</div>
 					<div className=" flex  items-center gap-3">

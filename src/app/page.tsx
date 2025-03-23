@@ -5,8 +5,7 @@ import Image from "next/image";
 export default function Home() {
 	return (
 		<div className="flex bg-[url('/rice-background.jpg')] bg-bottom bg-no-repeat bg-cover max-w-[2080px] items-center back justify-center h-screen w-full">
-			<div className=" h-screen w-full relative"></div>
-			<div className="grid grid-cols-1 absolute max-w-[1280px] w-full justify-start items-center pt-12 backdrop-blur-xs p-6 rounded-md border">
+			<div className="grid grid-cols-1 max-w-[1280px] w-full justify-start items-center pt-12 backdrop-blur-xs p-6 rounded-md border">
 				<h3 className="font-medium text-lg mb-8">
 					WELCOME TO
 					<span className="font-extrabold underline p-2 text-indigo-800">
@@ -14,15 +13,16 @@ export default function Home() {
 					</span>
 				</h3>
 				<div className="flex items-center gap-2">
-					<h1 className="text-7xl font-mono font-bold">Rice Disease</h1>
+					<h1 className="text-7xl font-mono font-bold">
+						Rice Pest and Disease
+					</h1>
 					<Image src={Rice} alt="rice logo" className="rotate-[30deg] w-24" />
 				</div>
 				<h1 className="text-7xl font-mono font-bold mb-10">Detection System</h1>
 				<p className="text-wrap max-w-[800px] font-semibold text-base">
-					Having problems with rice disease but don&apos;t know what disease it
-					is? Don&apos;t worry, Rice Sentry got you covered with its Rice
-					Disease Detection to help you maintain your rice healty to keep your
-					income wealthy.
+					Don&apos;t know what&apos;s harming your rice crops? No worries!
+					RiceSentry helps you identify problems and keep your rice healthy for
+					a better harvest.
 				</p>
 				<div className="mt-8">
 					<Button className="px-12 py-6 bg-indigo-600 text-white font-bold hover:cursor-pointer">

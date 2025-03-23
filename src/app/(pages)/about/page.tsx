@@ -1,52 +1,56 @@
-import Link from "next/link";
-
 export default function About() {
 	return (
 		<div className="flex bg-[url('/rice-background2.jpg')] bg-bottom bg-no-repeat bg-cover max-w-[2080px] items-center back justify-center h-screen w-full">
-			<div className=" h-screen w-full relative"></div>
-			<div className="flex absolute max-w-[1280px] w-full justify-between items-center gap-20 mx-auto">
-				<div className="flex flex-col text-wrap gap-16 backdrop-blur-xs rounded-md p-6 border">
+			<div className="flex max-w-[1280px] w-full h-fit justify-between gap-5 items-start">
+				<div className="flex flex-col text-wrap gap-12 backdrop-blur-xs rounded-md p-6 border flex-wrap max-w-[600px] w-fit">
 					<h1 className="text-4xl font-mono font-extrabold text-indigo-800">
 						What is Rice Sentry?
 					</h1>
-					<p className="font-semibold text-lg text-wrap">
-						Rice Sentry is your digital plant pathologist! Our innovative web
-						application allows you to upload images of rice leaves and uses
-						advanced AI technology that was trained on custom model with an
-						impressive accurary of{" "}
-						<span className="text-indigo-800 font-bold">96%</span> to precisely
-						diagnose whether your rice plant is healthy or suffering from a
-						disease.
-					</p>
-					<p className="font-semibold text-lg text-wrap">
-						Rice Sentry will not only identify it but also provide information
-						about the type of disease affecting your crop. With Rice Sentry,
-						safeguarding your rice plants&apos; health is just a click away!
-					</p>
+					<div className="flex flex-col gap-5">
+						<p className="font-semibold text-lg text-wrap">
+							RiceSentry is a web application that help rice farmers detect
+							pests and diseases in their crops. It uses artificial intelligence
+							<span className="text-indigo-800 font-bold">(AI)</span>
+							and a special image-processing technology called Convolutional
+							Neural Networks{" "}
+							<span className="text-indigo-800 font-bold">(CNN)</span>.
+						</p>
+						<p className="font-semibold text-lg text-wrap">
+							Farmers can take pictures of their rice plants, and the app will
+							analyze the images to identify common problems. It then provides
+							recommendations on how to manage these issues.
+						</p>
+					</div>
 				</div>
-				<div className="flex flex-col text-wrap gap-16 backdrop-blur-xs rounded-sm border p-6">
+				<div className="flex flex-col text-wrap gap-12 backdrop-blur-xs rounded-sm border h-fit p-6 max-w-[600px] w-fit">
 					<h1 className="text-4xl font-mono font-extrabold text-indigo-800">
 						How to Use Rice Sentry?
 					</h1>
-					<p className="font-semibold text-lg text-wrap">
-						Embark on your journey with Rice Sentry in just a few simple steps!
-						First, prepare a clear photo of your rice leaf - you can either take
-						a fresh snap or use an existing image. Navigate to the
-						&apos;Detect&apos; page on our web application and upload your
-						image. Our advanced AI will then analyze the image and provide you
-						with results.
-					</p>
-					<p className="font-semibold text-lg text-wrap">
-						Don&apos;t have a photo at hand? No worries! We&apos;ve got you
-						covered. Click{" "}
-						<Link
-							className="underline text-indigo-800 font-bold"
-							href="/disease"
-						>
-							Here
-						</Link>{" "}
-						to download a sample image and experience the power of Rice Sentry!
-					</p>
+					<div className="flex flex-col gap-2 text-wrap">
+						<p className="font-semibold text-xl">
+							Start using RiceSentry in just a few easy steps!
+						</p>
+						<p className="font-semibold text-lg text-wrap">
+							1. Use your phone’s camera to take a clear photo of the rice
+							plant, focusing on the affected area.
+						</p>
+						<p className="font-semibold text-lg text-wrap">
+							2. Tap the upload button to send the image to the system for
+							analysis.
+						</p>
+						<p className="font-semibold text-lg text-wrap">
+							3. The app will quickly analyze the image and tell you if your
+							rice plant is healthy or has pests or diseases.
+						</p>
+						<p className="font-semibold text-lg text-wrap">
+							4. If a problem is found, the system will provide advice on how to
+							treat or prevent it.
+						</p>
+						<p className="font-semibold text-lg text-wrap">
+							5. You can save the diagnosis for future reference or share it
+							with other farmers or agricultural experts.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -15,8 +15,8 @@ export function NavBar() {
 	return (
 		<div className="w-full py-6 bg-background">
 			<nav className="flex items-center mx-auto justify-between max-w-[1280px]">
-				<div className="flex gap-2 font-bold text-2xl">
-					<span>Rice</span>
+				<div className="flex font-bold text-2xl">
+					Rice
 					<span className="text-indigo-600">Sentry</span>
 				</div>
 				<div className="flex gap-2">
