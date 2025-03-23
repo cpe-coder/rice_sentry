@@ -45,7 +45,7 @@ export function NavBar() {
 						className={pathname == "/team" ? active : inActive}
 						href="/team"
 					>
-						Team
+						Feedback
 					</Link>
 				</div>
 				<div className="flex items-center gap-8">

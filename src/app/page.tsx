@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
 	return (
-		<div className="bg-[url('/rice-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center h-screen p-8 w-full">
+		<div className="bg-[url('/rice-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center p-8 w-full">
 			<div className="grid grid-cols-1 max-w-[1280px] w-full justify-start items-center pt-12 backdrop-blur-xs p-8 rounded-md border">
 				<h3 className="font-medium text-lg mb-8">
 					WELCOME TO

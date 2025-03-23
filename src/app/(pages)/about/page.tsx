@@ -1,7 +1,7 @@
 export default function About() {
 	return (
-		<div className=" bg-[url('/rice-background2.jpg')] bg-bottom bg-no-repeat bg-cover items-center back justify-center w-full">
-			<div className="flex flex-col gap-10 max-w-[2080px] px-8">
+		<div className=" bg-[url('/rice-background2.jpg')] bg-bottom bg-no-repeat bg-fixed items-center back justify-center w-full">
+			<div className="flex flex-col gap-10 max-w-[1280px] px-8">
 				<div className="flex flex-col backdrop-blur-xs p-6 rounded-lg pb-10">
 					<h1 className="text-4xl font-mono font-extrabold text-indigo-800">
 						What is Rice Sentry?
