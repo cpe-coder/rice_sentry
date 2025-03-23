@@ -1,6 +1,6 @@
 export default function About() {
 	return (
-		<div className=" bg-[url('/rice-background2.jpg')] bg-bottom bg-no-repeat bg-fixed items-center back justify-center w-full">
+		<div className=" bg-[url('/rice-background2.jpg')] bg-bottom bg-no-repeat bg-fixed items-center justify-center w-full min-h-screen">
 			<div className="mx-auto max-w-[1280px] px-8 py-20">
 				<div className="flex flex-col gap-12">
 					<div className="flex flex-col backdrop-blur-xs p-6 rounded-lg pb-10 gap-8">

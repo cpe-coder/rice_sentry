@@ -36,6 +36,8 @@ import {
 	MenubarTrigger,
 } from "./menubar";
 
+import { Textarea } from "./textarea";
+
 export {
 	Button,
 	DropdownMenu,
@@ -70,4 +72,5 @@ export {
 	MenubarSubContent,
 	MenubarSubTrigger,
 	MenubarTrigger,
+	Textarea,
 };
