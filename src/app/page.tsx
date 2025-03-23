@@ -1,8 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui";
 import { Rice } from "@/constant";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+	const router = useRouter();
 	return (
 		<div className="bg-[url('/rice-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full min-h-screen">
 			<div className="mx-auto py-20 px-8 max-w-[1280px] w-full">
@@ -28,7 +32,10 @@ export default function Home() {
 						for a better harvest.
 					</p>
 					<div className="mt-8">
-						<Button className="px-12 py-6 bg-indigo-600 text-white font-bold hover:cursor-pointer">
+						<Button
+							onClick={() => router.push("/detect")}
+							className="px-12 py-6 bg-indigo-600 hover:bg-indigo-800 hover:transition-all hover:duration-300 transition-all duration-300 text-white font-bold hover:cursor-pointer"
+						>
 							Proceed
 						</Button>
 					</div>

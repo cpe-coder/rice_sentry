@@ -51,7 +51,7 @@ export function NavBar() {
 				<div className="flex items-center gap-8">
 					<Button
 						onClick={() => router.push("/signin")}
-						className="px-8 bg-indigo-600 hover:cursor-pointer text-white"
+						className="px-8 bg-indigo-600 hover:cursor-pointer text-white hover:bg-indigo-800 hover:transition-all hover:duration-300 transition-all duration-300"
 					>
 						Sign In
 					</Button>
