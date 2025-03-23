@@ -42,8 +42,8 @@ export function NavBar() {
 						Diseases
 					</Link>
 					<Link
-						className={pathname == "/team" ? active : inActive}
-						href="/team"
+						className={pathname == "/feedback" ? active : inActive}
+						href="/feedback"
 					>
 						Feedback
 					</Link>
