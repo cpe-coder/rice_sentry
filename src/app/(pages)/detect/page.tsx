@@ -56,7 +56,7 @@ export default function ImageUploader() {
 					<h1 className="text-3xl backdrop-blur-md p-2 rounded-sm font-bold text-indigo-600">
 						RiceSentry Pest and Disease{" "}
 					</h1>
-					<p className="text-center">
+					<p className="text-center text-white">
 						Upload or paste an image of your crop to check for potential
 						diseases.
 					</p>
