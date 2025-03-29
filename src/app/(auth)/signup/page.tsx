@@ -11,8 +11,8 @@ export default function SignUp() {
 	const router = useRouter();
 	return (
 		<>
-			<div className="w-full max-w-xl space-y-6 rounded-lg drop-shadow-lg pt-14 backdrop-blur-xs">
-				<div className="flex justify-between items-center">
+			<div className="w-full max-w-xl space-y-4 p-4 rounded-lg drop-shadow-lg pt-14 backdrop-blur-xs -mt-32 md:mt-0 lg:mt-0">
+				<div className="flex flex-col md:flex-row lg:flex-row justify-between items-center gap-4 md:gap-0 lg:gap-0 ">
 					<div className="flex font-bold text-2xl">
 						Sign Up to Rice
 						<span className="text-indigo-600">Sentry</span>

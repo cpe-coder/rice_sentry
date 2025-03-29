@@ -10,20 +10,20 @@ export default function SignIn() {
 	const router = useRouter();
 	return (
 		<>
-			<div className="w-full max-w-xl space-y-6 rounded-lg drop-shadow-lg backdrop-blur-xs">
-				<div className="flex justify-between items-center">
+			<div className="w-full max-w-xl space-y-4 p-4 rounded-lg drop-shadow-lg backdrop-blur-xs -mt-32 md:mt-0 lg:mt-0">
+				<div className="flex flex-col md:flex-row lg:flex-row justify-between items-center gap-4 md:gap-0 lg:gap-0 ">
 					<div className="flex font-bold text-2xl">
 						Log in to Rice
 						<span className="text-indigo-600">Sentry</span>
 					</div>
 					<div className=" flex  items-center gap-3">
-						<span className="text-base font-semibold text-gray-500  hover:text-white">
+						<span className="text-base font-semibold text-gray-500 hover:text-white">
 							New user?
 						</span>
 						<Button
 							variant="outline"
 							onClick={() => router.push("/signup")}
-							className="px-6 py-4 text-sm hover:cursor-pointer font-medium rounded-sm "
+							className="px-6 py-4 text-sm hover:cursor-pointer font-bold rounded-sm "
 						>
 							Sign Up <ArrowRight />
 						</Button>
