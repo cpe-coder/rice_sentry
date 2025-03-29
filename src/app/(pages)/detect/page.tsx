@@ -49,13 +49,11 @@ export default function ImageUploader() {
 		setImage(null);
 	};
 
-	console.log(image);
-
 	return (
 		<div className=" bg-[url('/detection-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full min-h-screen">
-			<div className="mx-auto max-w-[1280px] px-4 md:px-8 lg:px-8 py-5 md:py-10 lg:py-20">
+			<div className="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8 py-20">
 				<div className="flex flex-col items-center justify-center pb-10">
-					<h1 className="text-3xl backdrop-blur-md p-2 rounded-sm font-bold text-center text-indigo-600">
+					<h1 className="text-3xl text-center backdrop-blur-md p-2 rounded-sm font-bold text-indigo-600">
 						RiceSentry Pest and Disease{" "}
 					</h1>
 					<p className="text-center text-white">
@@ -63,7 +61,7 @@ export default function ImageUploader() {
 						diseases.
 					</p>
 				</div>
-				<div className="flex flex-col gap-4 md:gap-8 lg:gap-8 backdrop-blur-sm px-5 py-8 rounded-lg bg-background">
+				<div className="flex flex-col gap-2 backdrop-blur-sm px-5 py-8 rounded-lg bg-background">
 					<div
 						{...getRootProps()}
 						className={`border-[2px] border-indigo-500 border-dashed rounded-lg p-6  text-center cursor-pointer transition-all 
@@ -90,7 +88,7 @@ export default function ImageUploader() {
 
 								<button
 									onClick={handleRemoveImage}
-									className="absolute top-2 right-2 hover:cursor-pointer active:opacity-70 hover:bg-gray-300/10 hover:transition-all hover:duration-300 transition-all duration-300 p-2 rounded-full text-red-500"
+									className="absolute top-0 right-0 hover:cursor-pointer active:opacity-70 hover:bg-gray-300/10 hover:transition-all hover:duration-300 transition-all duration-300 p-2 rounded-full text-red-500"
 								>
 									<XCircle size={24} />
 								</button>
@@ -101,15 +99,15 @@ export default function ImageUploader() {
 									size={48}
 									className=" dark:text-gray-300 text-gray-500"
 								/>
-								<p className="text-lg dark:text-gray-300 text-gray-500">
+								<p className="text-lg dark:text-gray-300 flex gap-2 text-gray-500">
 									{" "}
 									<label
 										htmlFor="fileUpload"
-										className="font-bold text-base md:text-lg lg:text-lg hover:cursor-pointer hover:text-indigo-600 transition-all dark:text-white text-foreground duration-300 hover:transition-all hover:duration-300"
+										className="font-bold text-lg hover:cursor-pointer hover:text-indigo-600 transition-all dark:text-white text-foreground duration-300 hover:transition-all hover:duration-300"
 									>
 										Upload a file
 									</label>{" "}
-									<span className="hidden md:block lg:block">
+									<span className="hidden md:flex lg:flex">
 										or drag and drop
 									</span>
 								</p>
@@ -119,11 +117,11 @@ export default function ImageUploader() {
 							</div>
 						)}
 					</div>
-					<div className="flex flex-col w-full gap-5 text-center justify-between">
-						<p className="text-sm md:text-base lg:text-lg text-gray-400">
+					<div className="grid grid-cols-1 md:flex lg:flex justify-between gap-4 md:gap-0 lg:gap-0">
+						<p className="text-center text-gray-300 md:text-white lg:text-white py-2 md:text-start lg:text-start">
 							Click process button after uploading image
 						</p>
-						<Button className="bg-indigo-600 px-10 w-full hover:cursor-pointer text-white hover:bg-indigo-800">
+						<Button className="bg-indigo-600 px-10 hover:cursor-pointer text-white hover:bg-indigo-800">
 							Process
 						</Button>
 					</div>
