@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui";
-import { CheckCircle, Image as UImage, XCircle } from "lucide-react";
+import { Image as UImage, XCircle } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { useDropzone } from "react-dropzone";
@@ -49,6 +49,8 @@ export default function ImageUploader() {
 		setImage(null);
 	};
 
+	console.log(image);
+
 	return (
 		<div className=" bg-[url('/detection-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full min-h-screen">
 			<div className="mx-auto max-w-[1280px] px-8 py-20">
@@ -85,13 +87,10 @@ export default function ImageUploader() {
 									layout="fill"
 									objectFit="contain"
 								/>
-								<CheckCircle
-									className="absolute top-2 right-10 text-green-500"
-									size={24}
-								/>
+
 								<button
 									onClick={handleRemoveImage}
-									className="absolute top-2 right-2 text-red-500"
+									className="absolute top-2 right-2 hover:cursor-pointer active:opacity-70 hover:bg-gray-300/10 hover:transition-all hover:duration-300 transition-all duration-300 p-2 rounded-full text-red-500"
 								>
 									<XCircle size={24} />
 								</button>
