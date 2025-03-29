@@ -53,9 +53,9 @@ export default function ImageUploader() {
 
 	return (
 		<div className=" bg-[url('/detection-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full min-h-screen">
-			<div className="mx-auto max-w-[1280px] px-8 py-20">
+			<div className="mx-auto max-w-[1280px] px-4 md:px-8 lg:px-8 py-5 md:py-10 lg:py-20">
 				<div className="flex flex-col items-center justify-center pb-10">
-					<h1 className="text-3xl backdrop-blur-md p-2 rounded-sm font-bold text-indigo-600">
+					<h1 className="text-3xl backdrop-blur-md p-2 rounded-sm font-bold text-center text-indigo-600">
 						RiceSentry Pest and Disease{" "}
 					</h1>
 					<p className="text-center text-white">
@@ -63,7 +63,7 @@ export default function ImageUploader() {
 						diseases.
 					</p>
 				</div>
-				<div className="flex flex-col gap-8 backdrop-blur-sm px-5 py-8 rounded-lg bg-background">
+				<div className="flex flex-col gap-4 md:gap-8 lg:gap-8 backdrop-blur-sm px-5 py-8 rounded-lg bg-background">
 					<div
 						{...getRootProps()}
 						className={`border-[2px] border-indigo-500 border-dashed rounded-lg p-6  text-center cursor-pointer transition-all 
@@ -105,21 +105,25 @@ export default function ImageUploader() {
 									{" "}
 									<label
 										htmlFor="fileUpload"
-										className="font-bold text-lg hover:cursor-pointer hover:text-indigo-600 transition-all dark:text-white text-foreground duration-300 hover:transition-all hover:duration-300"
+										className="font-bold text-base md:text-lg lg:text-lg hover:cursor-pointer hover:text-indigo-600 transition-all dark:text-white text-foreground duration-300 hover:transition-all hover:duration-300"
 									>
 										Upload a file
 									</label>{" "}
-									or drag and drop
+									<span className="hidden md:block lg:block">
+										or drag and drop
+									</span>
 								</p>
-								<p className="text-sm dark:text-gray-300 text-gray-500">
+								<p className="text-xs md:text-sm lg:text-sm dark:text-gray-300 text-gray-500">
 									PNG, JPG, up to 10MB
 								</p>
 							</div>
 						)}
 					</div>
-					<div className="flex justify-between">
-						<p>Click process button after uploading image</p>
-						<Button className="bg-indigo-600 px-10 hover:cursor-pointer text-white hover:bg-indigo-800">
+					<div className="flex flex-col w-full gap-5 text-center justify-between">
+						<p className="text-sm md:text-base lg:text-lg text-gray-400">
+							Click process button after uploading image
+						</p>
+						<Button className="bg-indigo-600 px-10 w-full hover:cursor-pointer text-white hover:bg-indigo-800">
 							Process
 						</Button>
 					</div>
