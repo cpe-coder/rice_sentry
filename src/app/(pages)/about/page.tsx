@@ -1,10 +1,10 @@
 export default function About() {
 	return (
 		<div className=" bg-[url('/rice-background2.jpg')] bg-bottom bg-no-repeat bg-fixed items-center justify-center w-full min-h-screen">
-			<div className="mx-auto max-w-[1280px] px-8 py-20">
+			<div className="mx-auto max-w-[1280px] px-4 md:px-8 lg:px-8 py-5 md:py-10 lg:py-20">
 				<div className="flex flex-col gap-12">
 					<div className="flex flex-col backdrop-blur-xs p-6 rounded-lg pb-10 gap-8">
-						<h1 className="text-4xl font-mono font-extrabold text-indigo-800">
+						<h1 className="text-4xl text-center md:text-left lg:text-left font-mono font-extrabold text-indigo-800">
 							What is Rice Sentry?
 						</h1>
 						<div className="flex flex-col gap-5">
@@ -25,7 +25,7 @@ export default function About() {
 						</div>
 					</div>
 					<div className="flex flex-col backdrop-blur-xs p-6 rounded-lg gap-8">
-						<h1 className="text-4xl font-mono font-extrabold text-indigo-800">
+						<h1 className="text-4xl font-mono text-center md:text-left lg:text-left font-extrabold text-indigo-800">
 							How to Use Rice Sentry?
 						</h1>
 						<div className="flex flex-col gap-2 text-wrap">
