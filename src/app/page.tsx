@@ -9,6 +9,7 @@ export default function Home() {
 	const router = useRouter();
 	return (
 		<div className="bg-[url('/rice-background.jpg')] bg-bottom bg-no-repeat bg-fixed md:bg-cover lg:bg-cover items-center justify-center w-full min-h-screen">
+			<title>RiceSentry • Home</title>
 			<div className="mx-auto py-20 px-4 md:px-8 lg:px-8 max-w-[1280px] w-full">
 				<div className="grid grid-cols-1 justify-start items-center backdrop-blur-xs p-4 rounded-md border">
 					<h3 className="font-medium text-base md:text-lg lg:text-lg mb-8 ">

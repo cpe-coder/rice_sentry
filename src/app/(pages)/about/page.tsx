@@ -1,6 +1,7 @@
 export default function About() {
 	return (
 		<div className=" bg-[url('/rice-background2.jpg')] bg-bottom bg-no-repeat bg-fixed items-center justify-center w-full min-h-screen">
+			<title>RiceSentry • About</title>
 			<div className="mx-auto max-w-[1280px] px-4 md:px-8 lg:px-8 py-5 md:py-10 lg:py-20">
 				<div className="flex flex-col gap-12">
 					<div className="flex flex-col backdrop-blur-xs p-6 rounded-lg pb-10 gap-8">

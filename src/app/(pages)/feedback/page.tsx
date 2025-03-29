@@ -4,6 +4,7 @@ import { NotebookPen } from "lucide-react";
 export default function Feedback() {
 	return (
 		<div className="bg-[url('/feedback-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full">
+			<title>RiceSentry • Feedback</title>
 			<div className=" w-full mx-auto justify-between max-w-[1280px] px-4">
 				<div className="flex items-center justify-center mx-auto w-full min-h-screen">
 					<div className="p-6 border rounded-lg border-gray-300 dark:border-gray-800 bg-background/90 w-md min-w-xs">

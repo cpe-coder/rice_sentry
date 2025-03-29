@@ -11,6 +11,7 @@ export default function SignIn() {
 	return (
 		<>
 			<div className="w-full max-w-xl space-y-4 p-4 rounded-lg drop-shadow-lg backdrop-blur-xs -mt-32 md:mt-0 lg:mt-0">
+				<title>RiceSentry • Sign In</title>
 				<div className="flex flex-col md:flex-row lg:flex-row justify-between items-center gap-4 md:gap-0 lg:gap-0 ">
 					<div className="flex font-bold text-2xl">
 						Log in to Rice

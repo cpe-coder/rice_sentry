@@ -5,6 +5,7 @@ import { diseases } from "@/constant/data";
 export default function Diseases() {
 	return (
 		<div className="flex flex-col items-center w-full">
+			<title>RiceSentry • Diseases</title>
 			{diseases.map((disease, index) => (
 				<div
 					key={index}

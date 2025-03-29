@@ -51,6 +51,7 @@ export default function ImageUploader() {
 
 	return (
 		<div className=" bg-[url('/detection-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full min-h-screen">
+			<title>RiceSentry • Detection</title>
 			<div className="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8 py-20">
 				<div className="flex flex-col items-center justify-center pb-10">
 					<h1 className="text-3xl text-center backdrop-blur-md p-2 rounded-sm font-bold text-indigo-600">

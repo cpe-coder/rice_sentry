@@ -12,6 +12,7 @@ export default function SignUp() {
 	return (
 		<>
 			<div className="w-full max-w-xl space-y-4 p-4 rounded-lg drop-shadow-lg pt-14 backdrop-blur-xs -mt-32 md:mt-0 lg:mt-0">
+				<title>RiceSentry • Sign Up</title>
 				<div className="flex flex-col md:flex-row lg:flex-row justify-between items-center gap-4 md:gap-0 lg:gap-0 ">
 					<div className="flex font-bold text-2xl">
 						Sign Up to Rice
