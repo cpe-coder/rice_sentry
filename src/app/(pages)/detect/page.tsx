@@ -168,7 +168,7 @@ export default function ImageUploader() {
 					</div>
 
 					<div className="grid grid-cols-1 md:flex lg:flex justify-between gap-4 md:gap-0 lg:gap-0">
-						<p className="text-center text-gray-300 md:text-white lg:text-white py-2 md:text-start lg:text-start">
+						<p className="text-center py-2 md:text-start lg:text-start">
 							Click process button after uploading an image
 						</p>
 						<Button

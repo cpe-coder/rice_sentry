@@ -1,18 +1,19 @@
 import {
 	AnyWorm,
 	BacterialLeaf,
-	BPH,
+	BrownPlantHopper,
+	BrownSpot,
 	CaseWorm,
 	FalseSmut,
 	GoldenAppleSnail,
-	GrainDiscoloration1,
+	GrainDiscoloration,
 	GreenLeafhopper,
 	LeafScald,
 	RiceBlast,
-	RiceBug,
 	RiceEarBug,
 	RiceGallMidge,
 	RiceLeafFolder,
+	RiceMealyBug,
 	RiceRootAphid,
 	RiceStemBorer,
 	RiceThrips,
@@ -41,19 +42,26 @@ export const diseases = [
 	{
 		position: "left",
 		name: "Brown Planthopper (BPH)",
-		image: BPH,
+		image: BrownPlantHopper,
 		description:
 			"The brown planthopper is a small brown insect that sucks juice from rice plants. It appears more during rainy times. The insect makes plants turn brown and die.",
 	},
 	{
 		position: "right",
+		name: "Brown Spot Disease",
+		image: BrownSpot,
+		description:
+			"Brown spot disease causes brown spots on rice leaves. It happens when the plant is weak or lacks nutrients. The spots spread when the weather is warm and wet.",
+	},
+	{
+		position: "left",
 		name: "Caseworm",
 		image: CaseWorm,
 		description:
 			"The caseworm is a small worm that makes a case from rice leaves. It stays inside the case and eats the leaves. It is common in flooded fields.",
 	},
 	{
-		position: "left",
+		position: "right",
 		name: "False Smut",
 		image: FalseSmut,
 		description:
@@ -61,19 +69,13 @@ export const diseases = [
 	},
 
 	{
-		position: "right",
+		position: "left",
 		name: "Golden Apple Snail",
 		image: GoldenAppleSnail,
 		description:
 			"The golden apple snail is a big snail that eats young rice plants. It is common after planting and during rainy seasons. The snails can destroy young plants fast.",
 	},
-	{
-		position: "left",
-		name: "Grain Discoloration",
-		image: GrainDiscoloration1,
-		description:
-			"Grain discoloration turns rice grains brown or black. It happens when the weather is wet or rainy. The grains look dirty and become low in quality.",
-	},
+
 	{
 		position: "right",
 		name: "Green Leafhopper",
@@ -95,12 +97,13 @@ export const diseases = [
 		description:
 			"TRice blast is a disease that makes gray or white spots with brown edges on leaves. It spreads fast when there is too much rain or wind.",
 	},
+
 	{
 		position: "left",
-		name: "Rice Bug",
-		image: RiceBug,
+		name: "Rice Mealy Bug",
+		image: RiceMealyBug,
 		description:
-			"The rice bug is a brown bug that sucks sap from young grains. The grains become shriveled or empty. The bug is seen more when the grains are soft.",
+			"The rice mealybug is a small white insect that sucks juice from rice plants. It makes plants weak and stunted.",
 	},
 	{
 		position: "right",
@@ -178,5 +181,12 @@ export const diseases = [
 		image: ZigzagLeafhopper,
 		description:
 			"The rice zigzag leafhopper is found in all rice environments. It is abundant during the early rainy season in the early growth stages of the rice plant. It rarely occurs in large numbers. The adults usually stay in the upper parts of the rice plants.",
+	},
+	{
+		position: "left",
+		name: "Grain Discoloration",
+		image: GrainDiscoloration,
+		description:
+			"Grain discoloration turns rice grains brown or black. It happens when the weather is wet or rainy. The grains look dirty and become low in quality.",
 	},
 ];
