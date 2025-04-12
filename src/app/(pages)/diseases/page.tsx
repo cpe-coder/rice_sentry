@@ -15,10 +15,10 @@ export default function Diseases() {
 						<Image
 							src={disease.position === "left" ? disease.image : ""}
 							alt="Army Worm"
-							className="lg:h-[500px] lg:w-[500px] md:w-[300px] md:h-[300px] shadow-2xl rounded-tl-full shadow-gray-500 w-[200px] h-[200px] rounded-tr-full rounded-br-full"
+							className="lg:h-[500px] ml-4 md:ml-0 lg:ml-0 lg:w-[500px] md:w-[300px] md:h-[300px] shadow-2xl rounded-tl-full shadow-gray-500 w-[200px] h-[200px] rounded-tr-full rounded-br-full"
 						/>
 					)}
-					<div className="flex flex-col px-4 gap-5 md:gap-12 lg:gap-16 text-wrap">
+					<div className="flex flex-col px-4 md:px-0 lg:px-0 gap-5 md:gap-12 lg:gap-16 text-wrap">
 						<h1
 							className={`font-bold text-xl md:text-3xl lg:text-5xl   ${
 								disease.position === "left" ? "text-right" : "text-left"
@@ -38,7 +38,7 @@ export default function Diseases() {
 						<Image
 							src={disease.position === "right" ? disease.image : ""}
 							alt="Bacterial Leaf Blight"
-							className="lg:h-[500px] lg:w-[500px] md:w-[300px] md:h-[300px] shadow-2xl rounded-br-full  shadow-gray-500 w-[200px] h-[200px] rounded-tl-full rounded-bl-full"
+							className="lg:h-[500px] mr-4 md:mr-0 lg:mr-0 lg:w-[500px] md:w-[300px] md:h-[300px] shadow-2xl rounded-br-full  shadow-gray-500 w-[200px] h-[200px] rounded-tl-full rounded-bl-full"
 						/>
 					)}
 				</div>
