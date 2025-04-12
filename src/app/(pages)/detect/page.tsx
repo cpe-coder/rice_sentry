@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui";
+import axios from "axios";
 import { Image as UImage, XCircle } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -67,35 +68,21 @@ export default function ImageUploader() {
 	const handleProcessImage = async () => {
 		if (!file) return;
 		setLoading(true);
-
-		const toBase64 = (file: File): Promise<string> =>
-			new Promise((resolve, reject) => {
-				const reader = new FileReader();
-				reader.readAsDataURL(file);
-				reader.onload = () => resolve((reader.result as string).split(",")[1]); // Remove "data:image/png;base64,"
-				reader.onerror = (error) => reject(error);
-			});
-
-		const formData = new FormData();
-		formData.append("file", file);
-
-		try {
-			const base64Image = await toBase64(file);
-
-			const response = await fetch("http://localhost:8000/upload/", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({
-					filename: file.name,
-					image_base64: base64Image,
-				}),
-			});
-
-			const data = await response.json();
-			setResult(data.message);
-		} catch (error) {
-			console.error("Error uploading file:", error);
-			setResult({ name: "Error", description: "Upload failed." });
+		if (file) {
+			try {
+				const formData = new FormData();
+				formData.append("file", file);
+				const response = await axios({
+					method: "POST",
+					url: "http://localhost:8000/predict",
+					data: formData,
+				});
+				const data = await response.data;
+				setResult(data);
+			} catch (error) {
+				console.error("Error uploading file:", error);
+				setResult({ name: "Error", description: "Upload failed." });
+			}
 		}
 	};
 	return (
