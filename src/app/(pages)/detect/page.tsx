@@ -13,6 +13,7 @@ export default function ImageUploader() {
 	const [image, setImage] = React.useState<string | null>(null);
 	const [file, setFile] = React.useState<File | null>(null);
 	const [loading, setLoading] = React.useState(false);
+	const [visible, setVisible] = React.useState(false);
 	const [result, setResult] = React.useState<{
 		class: string;
 		confidence: string;
@@ -94,6 +95,18 @@ export default function ImageUploader() {
 		}
 	};
 
+	const handleCancel = () => {
+		setResult(null);
+	};
+
+	const session = "";
+
+	const handleSaveResult = () => {
+		if (!session) {
+			setVisible(true);
+		}
+	};
+
 	return (
 		<div className="bg-[url('/detection-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full min-h-screen">
 			<title>RiceSentry • Detection</title>
@@ -109,7 +122,7 @@ export default function ImageUploader() {
 				</div>
 
 				<div
-					className={`flex flex-col gap-2 backdrop-blur-sm px-2  rounded-lg bg-background ${
+					className={`flex flex-col gap-2 backdrop-blur-sm px-5  rounded-lg bg-background ${
 						result ? "py-5" : "py-8"
 					}`}
 				>
@@ -268,6 +281,21 @@ export default function ImageUploader() {
 										{result.details.Guidelines}
 									</span>
 								</h1>
+							</div>
+							<div className="flex items-center justify-end py-4 gap-5">
+								<Button
+									onClick={handleCancel}
+									variant="outline"
+									className="px-4 hover:cursor-pointer"
+								>
+									Cancel
+								</Button>
+								<Button
+									onClick={handleSaveResult}
+									className="px-4 bg-indigo-600 hover:cursor-pointer text-white hover:bg-indigo-800 hover:transition-all hover:duration-300 transition-all duration-300"
+								>
+									Save Result
+								</Button>
 							</div>
 						</div>
 					)}
