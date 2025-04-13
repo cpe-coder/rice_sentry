@@ -77,17 +77,17 @@ export default function ImageUploader() {
 			try {
 				const formData = new FormData();
 				formData.append("file", file);
-				const response = await axios({
+				await axios({
 					method: "POST",
 					url: "http://localhost:8000/predict",
 					data: formData,
+				}).then((res) => {
+					if (res.status == 200) {
+						setResult(res.data);
+						console.log(res.data);
+						setLoading(false);
+					}
 				});
-				if (response.status == 200) {
-					const data = await response.data;
-					setResult(data);
-					console.log(data);
-					setLoading(false);
-				}
 			} catch (error) {
 				console.error("Error uploading file:", error);
 			}
@@ -97,7 +97,7 @@ export default function ImageUploader() {
 	return (
 		<div className="bg-[url('/detection-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full min-h-screen">
 			<title>RiceSentry • Detection</title>
-			<div className="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8 py-20">
+			<div className="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8 py-6 md:py-14 lg:py-20">
 				<div className="flex flex-col items-center justify-center pb-10">
 					<h1 className="text-3xl text-center backdrop-blur-md p-2 rounded-sm font-bold text-indigo-600">
 						RiceSentry Pest and Disease
@@ -109,7 +109,7 @@ export default function ImageUploader() {
 				</div>
 
 				<div
-					className={`flex flex-col gap-2 backdrop-blur-sm px-5  rounded-lg bg-background ${
+					className={`flex flex-col gap-2 backdrop-blur-sm px-2  rounded-lg bg-background ${
 						result ? "py-5" : "py-8"
 					}`}
 				>
@@ -184,12 +184,43 @@ export default function ImageUploader() {
 					)}
 
 					{result && (
-						<div className="p-2  rounded-lg">
+						<div className="p-6  rounded-lg">
 							<div>
-								<h1 className="font-bold text-lg md:text-xl lg:text-2xl">
-									{result.details.Disease}
-								</h1>
-								<div className="flex flex-col justify-center gap-2 items-center">
+								<div className="flex items-center justify-center md:justify-between lg:justify-between">
+									<h1 className="font-bold text-xl md:text-2l lg:text-3xl text-center lg:text-left md:text-left">
+										{result.details.Disease}
+									</h1>
+									<div className="lg:flex md:flex justify-center gap-2 hidden items-center">
+										<h1 className="text-base">Accuracy</h1>
+										<div className="w-16 ">
+											<CircularProgressbar
+												value={Number(result.confidence)}
+												text={`${result.confidence}%`}
+												background
+												backgroundPadding={8}
+												styles={buildStyles({
+													backgroundColor: "#4f39f6",
+													textColor: "#fff",
+													textSize: "16",
+													pathColor: "#fff",
+													trailColor: "#010314",
+												})}
+											/>
+										</div>
+									</div>
+								</div>
+								<div className="flex items-center justify-center w-full py-8">
+									{image && (
+										<Image
+											className="rounded-lg w-[200px] md:w-[300px] lg:w-[400px]"
+											width={0}
+											height={0}
+											src={image}
+											alt="Uploaded image"
+										/>
+									)}
+								</div>
+								<div className="flex flex-col justify-center md:hidden lg:hidden gap-2 items-center">
 									<h1 className="text-base">Accuracy</h1>
 									<div className="w-16 ">
 										<CircularProgressbar
@@ -208,16 +239,36 @@ export default function ImageUploader() {
 									</div>
 								</div>
 							</div>
-
-							<p>
-								<strong>Description:</strong> {result.confidence}
-							</p>
-							<p>
-								<strong>Description:</strong> {result.confidence}
-							</p>
-							<p>
-								<strong>Description:</strong> {result.confidence}
-							</p>
+							<div className="flex flex-col text-wrap gap-5 bg-foreground rounded-lg px-4 py-6 mt-6">
+								<h1>
+									<span className="font-bold text-background">
+										Description:
+									</span>{" "}
+									<span className="text-background">
+										{result.details.Description}
+									</span>
+								</h1>
+								<h1>
+									<span className="font-bold text-background">
+										Recommendations:
+									</span>{" "}
+									<span className="text-background">
+										{result.details.Recommendations}
+									</span>
+								</h1>
+								<h1>
+									<span className="font-bold text-background">Pesticide:</span>{" "}
+									<span className="text-background">
+										{result.details.Pesticide}
+									</span>
+								</h1>
+								<h1>
+									<span className="font-bold text-background">Guidelines:</span>{" "}
+									<span className="text-background">
+										{result.details.Guidelines}
+									</span>
+								</h1>
+							</div>
 						</div>
 					)}
 				</div>
