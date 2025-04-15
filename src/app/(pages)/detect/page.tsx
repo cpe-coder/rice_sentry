@@ -4,6 +4,7 @@ import { Button } from "@/components/ui";
 import axios from "axios";
 import { Image as UImage, XCircle } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -13,7 +14,7 @@ export default function ImageUploader() {
 	const [image, setImage] = React.useState<string | null>(null);
 	const [file, setFile] = React.useState<File | null>(null);
 	const [loading, setLoading] = React.useState(false);
-	const [visible, setVisible] = React.useState(false);
+	// const [visible, setVisible] = React.useState(false);
 	const [result, setResult] = React.useState<{
 		class: string;
 		confidence: string;
@@ -25,6 +26,8 @@ export default function ImageUploader() {
 			Guidelines: string;
 		};
 	} | null>(null);
+
+	const route = useRouter();
 
 	const onDrop = React.useCallback((acceptedFiles: File[]) => {
 		const uploadedFile = acceptedFiles[0];
@@ -103,7 +106,7 @@ export default function ImageUploader() {
 
 	const handleSaveResult = () => {
 		if (!session) {
-			setVisible(true);
+			route.push("/signin");
 		}
 	};
 
