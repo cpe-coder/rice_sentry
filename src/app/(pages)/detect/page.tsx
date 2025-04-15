@@ -1,5 +1,7 @@
 "use client";
 
+import close from "@/assets/images/close.png";
+import invalidLogo from "@/assets/images/sadlogo.png";
 import { Button } from "@/components/ui";
 import axios from "axios";
 import { Image as UImage, XCircle } from "lucide-react";
@@ -15,6 +17,7 @@ export default function ImageUploader() {
 	const [file, setFile] = React.useState<File | null>(null);
 	const [loading, setLoading] = React.useState(false);
 	// const [visible, setVisible] = React.useState(false);
+	const [lowAccuracy, setLowAccuracy] = React.useState(false);
 	const [result, setResult] = React.useState<{
 		class: string;
 		confidence: string;
@@ -110,10 +113,25 @@ export default function ImageUploader() {
 		}
 	};
 
+	React.useEffect(() => {
+		if (result) {
+			const accuracy = Number(result?.confidence);
+			if (accuracy <= 79) {
+				setLowAccuracy(true);
+			} else {
+				setLowAccuracy(false);
+			}
+		}
+	}, [result]);
+
 	return (
 		<div className="bg-[url('/detection-background.jpg')] bg-bottom bg-no-repeat bg-cover items-center justify-center w-full min-h-screen">
 			<title>RiceSentry • Detection</title>
-			<div className="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8 py-6 md:py-14 lg:py-20">
+			<div
+				className={`mx-auto max-w-[1280px] md:px-6 lg:px-8 py-6 px-4 md:py-14 lg:py-20 ${
+					lowAccuracy ? "px-0" : "px-4"
+				}`}
+			>
 				<div className="flex flex-col items-center justify-center pb-10">
 					<h1 className="text-3xl text-center backdrop-blur-md p-2 rounded-sm font-bold text-indigo-600">
 						RiceSentry Pest and Disease
@@ -125,9 +143,8 @@ export default function ImageUploader() {
 				</div>
 
 				<div
-					className={`flex flex-col gap-2 backdrop-blur-sm px-5  rounded-lg bg-background ${
-						result ? "py-5" : "py-8"
-					}`}
+					className={`flex flex-col gap-2 px-5 rounded-lg bg-background  
+						${result ? "py-5" : "py-8"}`}
 				>
 					{!result && (
 						<>
@@ -199,14 +216,109 @@ export default function ImageUploader() {
 						</>
 					)}
 
-					{result && (
-						<div className="p-6  rounded-lg">
-							<div>
-								<div className="flex items-center justify-center md:justify-between lg:justify-between">
-									<h1 className="font-bold text-xl md:text-2l lg:text-3xl text-center lg:text-left md:text-left">
-										{result.details.Disease}
-									</h1>
-									<div className="lg:flex md:flex justify-center gap-2 hidden items-center">
+					{result &&
+						(lowAccuracy ? (
+							<div className="border-3 rounded-lg md:mx-16 lg:mx-40 p-4 bg-background my-4">
+								<div className="flex gap-10">
+									<div className="flex flex-col gap-5">
+										<div className="flex gap-5 items-center">
+											<div className="bg-indigo-600 rounded-full p-3 md:p-4 lg:p-5 flex justify-center items-center">
+												<Image
+													src={close}
+													alt="close"
+													width={0}
+													height={0}
+													className="w-8 md:w-11 lg:w-12 text-white"
+													color="white"
+												/>
+											</div>
+											<h1 className="font-bold md:text-3xl lg:text-4xl text-xl">
+												Oops! This image doesn&apos;t seem right.
+											</h1>
+										</div>
+										<div>
+											<h1 className="font-semibold text-base md:text-lg lg:text-xl">
+												Please upload a clear or valid image of a rice plant
+												leaf or pest for accurate prediction.
+											</h1>
+										</div>
+									</div>
+									<div className="hidden md:block lg:block">
+										<Image src={invalidLogo} alt="close" width={0} height={0} />
+									</div>
+								</div>
+								<div className="pt-8 md:pt-2 lg:pt-2 md:flex lg:flex gap-5">
+									<div className="w-60 bg-[url('/B12.jpg')] rounded-lg text-white bg-no-repeat bg-cover">
+										<div className="60 h-full rounded-lg backdrop-blur-xs"></div>
+									</div>
+									<div className="flex flex-col gap-5 mx-auto w-auto ">
+										<label
+											htmlFor="fileUpload"
+											className="px-4 py-2 text-center font-bold text-sm md:py-4 rounded-lg lg:py-6 md:text-xl lg:text-2xl bg-indigo-600 hover:cursor-not-allowed text-white"
+										>
+											Upload Another Image
+										</label>
+										<div className="flex gap-5">
+											<div className="w-40 md:hidden lg:hidden bg-[url('/B12.jpg')] rounded-lg text-white bg-no-repeat bg-cover">
+												<div className="40 h-full rounded-lg backdrop-blur-xs"></div>
+											</div>
+											<div className="flex flex-col text-xs md:text-sm lg:text-base gap-2 text-wrap">
+												<p>• Use JPG, JPEG, or PNG</p>
+												<p>• Avoid blurry images</p>
+												<p>• Make sure the affected area of the plan show</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div className="pt-4 w-full flex justify-end items-center">
+									<div className="flex-1 w-full"></div>
+									<Button
+										onClick={() => setResult(null)}
+										className="right-0 self-end hover:cursor-pointer"
+										variant="outline"
+									>
+										Close
+									</Button>
+								</div>
+							</div>
+						) : (
+							<div className="p-6  rounded-lg">
+								<div>
+									<div className="flex items-center justify-center md:justify-between lg:justify-between">
+										<h1 className="font-bold text-xl md:text-2l lg:text-3xl text-center lg:text-left md:text-left">
+											{result.details.Disease}
+										</h1>
+										<div className="lg:flex md:flex justify-center gap-2 hidden items-center">
+											<h1 className="text-base">Accuracy</h1>
+											<div className="w-16 ">
+												<CircularProgressbar
+													value={Number(result.confidence)}
+													text={`${result.confidence}%`}
+													background
+													backgroundPadding={8}
+													styles={buildStyles({
+														backgroundColor: "#4f39f6",
+														textColor: "#fff",
+														textSize: "16",
+														pathColor: "#fff",
+														trailColor: "#010314",
+													})}
+												/>
+											</div>
+										</div>
+									</div>
+									<div className="flex items-center justify-center w-full py-8">
+										{image && (
+											<Image
+												className="rounded-lg w-[200px] md:w-[300px] lg:w-[400px]"
+												width={0}
+												height={0}
+												src={image}
+												alt="Uploaded image"
+											/>
+										)}
+									</div>
+									<div className="flex flex-col justify-center md:hidden lg:hidden gap-2 items-center">
 										<h1 className="text-base">Accuracy</h1>
 										<div className="w-16 ">
 											<CircularProgressbar
@@ -225,83 +337,57 @@ export default function ImageUploader() {
 										</div>
 									</div>
 								</div>
-								<div className="flex items-center justify-center w-full py-8">
-									{image && (
-										<Image
-											className="rounded-lg w-[200px] md:w-[300px] lg:w-[400px]"
-											width={0}
-											height={0}
-											src={image}
-											alt="Uploaded image"
-										/>
-									)}
+								<div className="flex flex-col text-wrap gap-5 bg-foreground rounded-lg px-4 py-6 mt-6">
+									<h1>
+										<span className="font-bold text-background">
+											Description:
+										</span>{" "}
+										<span className="text-background">
+											{result.details.Description}
+										</span>
+									</h1>
+									<h1>
+										<span className="font-bold text-background">
+											Recommendations:
+										</span>{" "}
+										<span className="text-background">
+											{result.details.Recommendations}
+										</span>
+									</h1>
+									<h1>
+										<span className="font-bold text-background">
+											Pesticide:
+										</span>{" "}
+										<span className="text-background">
+											{result.details.Pesticide}
+										</span>
+									</h1>
+									<h1>
+										<span className="font-bold text-background">
+											Guidelines:
+										</span>{" "}
+										<span className="text-background">
+											{result.details.Guidelines}
+										</span>
+									</h1>
 								</div>
-								<div className="flex flex-col justify-center md:hidden lg:hidden gap-2 items-center">
-									<h1 className="text-base">Accuracy</h1>
-									<div className="w-16 ">
-										<CircularProgressbar
-											value={Number(result.confidence)}
-											text={`${result.confidence}%`}
-											background
-											backgroundPadding={8}
-											styles={buildStyles({
-												backgroundColor: "#4f39f6",
-												textColor: "#fff",
-												textSize: "16",
-												pathColor: "#fff",
-												trailColor: "#010314",
-											})}
-										/>
-									</div>
+								<div className="flex items-center justify-end py-4 gap-5">
+									<Button
+										onClick={handleCancel}
+										variant="outline"
+										className="px-4 hover:cursor-pointer"
+									>
+										Cancel
+									</Button>
+									<Button
+										onClick={handleSaveResult}
+										className="px-4 bg-indigo-600 hover:cursor-pointer text-white hover:bg-indigo-800 hover:transition-all hover:duration-300 transition-all duration-300"
+									>
+										Save Result
+									</Button>
 								</div>
 							</div>
-							<div className="flex flex-col text-wrap gap-5 bg-foreground rounded-lg px-4 py-6 mt-6">
-								<h1>
-									<span className="font-bold text-background">
-										Description:
-									</span>{" "}
-									<span className="text-background">
-										{result.details.Description}
-									</span>
-								</h1>
-								<h1>
-									<span className="font-bold text-background">
-										Recommendations:
-									</span>{" "}
-									<span className="text-background">
-										{result.details.Recommendations}
-									</span>
-								</h1>
-								<h1>
-									<span className="font-bold text-background">Pesticide:</span>{" "}
-									<span className="text-background">
-										{result.details.Pesticide}
-									</span>
-								</h1>
-								<h1>
-									<span className="font-bold text-background">Guidelines:</span>{" "}
-									<span className="text-background">
-										{result.details.Guidelines}
-									</span>
-								</h1>
-							</div>
-							<div className="flex items-center justify-end py-4 gap-5">
-								<Button
-									onClick={handleCancel}
-									variant="outline"
-									className="px-4 hover:cursor-pointer"
-								>
-									Cancel
-								</Button>
-								<Button
-									onClick={handleSaveResult}
-									className="px-4 bg-indigo-600 hover:cursor-pointer text-white hover:bg-indigo-800 hover:transition-all hover:duration-300 transition-all duration-300"
-								>
-									Save Result
-								</Button>
-							</div>
-						</div>
-					)}
+						))}
 				</div>
 			</div>
 		</div>
